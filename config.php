@@ -42,7 +42,7 @@ $app['auth.use_login_form'] = true;
 
 /**
  * Users authorized to access admin section (an array of username => password)
- * Default credentials are: admin / foo.
+ * Default credentials are: admin / passw0rd.
  *
  * You can generate a new password with the following command:
  *
