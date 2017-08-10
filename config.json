@@ -1,11 +1,14 @@
 {
-    "name": "My Private Repo",
-    "homepage": "https://satis.domain.tld",
-    "repositories": [
-    ],
-    "require-all":true,
-    "require-dependencies":true,
-    "require-dev-dependencies":true,
-    "minimum-stability":"dev"
+  "name": "Satis",
+  "homepage": "http://satis.lc",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
+  ],
+  "require": {
+      "league/fractal": "^0.15.0"
+  },
+  "require-dependencies":true
 }
-
