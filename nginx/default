@@ -1,0 +1,33 @@
+server {
+    listen  80;
+
+    root /satisfy/web;
+
+    access_log /var/log/nginx/satisfy-access.log;
+    error_log  /var/log/nginx/satisfy-error.log error;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        include fastcgi.conf;
+        fastcgi_param LARA_ENV local;
+        fastcgi_param HTTPS off;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
