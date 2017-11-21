@@ -1,7 +1,8 @@
 version: "2"
 services:
   satis:
-    image: ealebed/satis:1.0
+    image: ealebed/satis:latest
+    restart: always
     container_name: satis
     hostname: satis
     volumes:
